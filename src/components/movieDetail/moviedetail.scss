@@ -1,0 +1,112 @@
+@use "../../scss/" as *;
+
+.movie-detail {
+    .backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 200;
+        background-color: rgba(0, 0, 0, 0.6);
+        animation: fadeIn 1s cubic-bezier(0.17, 0.85, 0.45, 1) forwards;
+        @keyframes fadeIn {
+            0% {
+                background-color: rgba(0, 0, 0, 0);
+            }
+            100% {
+                background-color: rgba(0, 0, 0, 0.6);
+            }
+        }
+    }
+
+    .movie-detail-modal {
+        position: fixed;
+        top: 25%;
+        left: 0;
+        z-index: 300;
+        width: 100%;
+        height: 60%;
+        margin: 0 auto;
+        color: $color-white;
+        box-shadow: 0 15px 40px rgba($color-dark, 0.2);
+        transition: all 0.3s ease;
+        @include tablet {
+            height: 70%;
+        }
+        @include mobile {
+            height: 80%;
+        }
+        &-container {
+            position: relative;
+            width: 70%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(0, 0, 0, 0.94) 60%, transparent);
+            @include tablet {
+                background: linear-gradient(90deg, rgba(0, 0, 0, 0.94) 40%, transparent);
+                width: 88%;
+            }
+            @include mobile {
+                background: linear-gradient(90deg, rgba(0, 0, 0, 0.84) 60%, transparent);
+            }
+            .movie-detail-info {
+                width: 65%;
+                height: 100%;
+                padding-left: 24px;
+                color: $color-white;
+                font-size: 20px;
+                padding-top: 30px;
+                @include mobile {
+                    font-size: 16px;
+                    width: 80%;
+                }
+                .movie-detail-title {
+                    margin-top: 30px;
+                }
+                .movie-detail-statistical {
+                    margin-top: 20px;
+                    display: flex;
+                    .movie-detail-rating {
+                        color: $color-green;
+                    }
+                    .movie-detail-popularity {
+                        color: yellow;
+                        margin-left: 12px;
+                    }
+                }
+                .movie-detail-releaseDate,
+                .movie-detail-runtime {
+                    margin-top: 12px;
+                }
+                .movie-detail-overview {
+                    margin-top: 20px;
+                    color: rgba(255, 255, 255, 0.6);
+                    line-height: 1.4;
+                    font-size: 18px;
+                    @include mobile {
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+}
+.show-detail {
+    visibility: visible;
+}
+.hide-detail {
+    visibility: hidden;
+}
+.show-modal {
+    top: 25%;
+    opacity: 1;
+    left: 0;
+    visibility: visible;
+    transition: 0.3s ease-in-out;
+}
+.hide-modal {
+    top: 0%;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s ease-in-out;
+}

@@ -1,0 +1,93 @@
+@use "../../scss/" as *;
+
+.intro {
+    background-color: $color-background;
+    padding-top: 56%;
+    color: $text-color;
+    position: relative;
+    &-video {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    &-info {
+        position: absolute;
+        top: 140px;
+        left: 30px;
+        @include tablet {
+            top: 120px;
+            left: 25px;
+        }
+        @include mobile {
+            top: 100px;
+            left: 15px;
+        }
+        &-heading {
+            font-size: 60px;
+            transition: all 0.3s ease;
+            @include tablet {
+                font-size: 40px;
+            }
+            @include mobile {
+                font-size: 24px;
+            }
+        }
+        &-overview {
+            max-width: 550px;
+            width: 100%;
+            line-height: 1.3;
+            padding-top: 25px;
+            font-size: 18px;
+            @include tablet {
+                font-size: 16px;
+            }
+            @include mobile {
+                font-size: 14px;
+                width: 60%;
+                padding-top: 15px;
+            }
+        }
+    }
+    .btn-volume {
+        position: absolute;
+        width: 40px;
+        height: 40px;
+        right: 10%;
+        top: 50%;
+        border: 1px solid #bbb;
+        border-radius: 50%;
+        cursor: pointer;
+        padding: 6px;
+        color: #bbb;
+        transition: transform 0.5s ease;
+        &:hover {
+            transform: scale(1.2);
+            color: $text-color;
+            background-color: rgba(211, 211, 211, 0.15);
+        }
+        @include tablet {
+            height: 30px;
+            width: 30px;
+            padding: 4px;
+        }
+        @include mobile {
+            height: 20px;
+            width: 20px;
+            padding: 1px;
+        }
+    }
+    .fade-bottom {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 150px;
+        background-image: linear-gradient(
+            180deg,
+            transparent,
+            rgba(15, 15, 15, 0.5) 40%,
+            rgb(17, 17, 17),
+            rgb(17, 17, 17)
+        );
+    }
+}

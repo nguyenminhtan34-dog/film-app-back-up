@@ -1,0 +1,100 @@
+@use "../../scss/" as *;
+.header {
+    width: 100%;
+    height: $header-height;
+    position: fixed;
+    top: 0;
+    z-index: 99;
+    // background-color: #000;
+    color: $text-color;
+    box-shadow: $box-shadow;
+    @include flex(center, unset);
+    flex-direction: row;
+    @include mobile {
+        height: 60px;
+    }
+    &-logo {
+        cursor: pointer;
+        width: 200px;
+        @include mobile {
+            width: 100px;
+        }
+        img {
+            width: 100%;
+        }
+    }
+    &-search {
+        display: flex;
+        justify-content: flex-end;
+        color: $text-color;
+        padding-right: 20px;
+        &:hover &-icon {
+            color: var(--color-white);
+        }
+        &-icon {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            transform: translateX(24px) translateY(10px);
+            color: #bbb;
+        }
+        &-input {
+            font-size: 14px;
+            border: none;
+            color: var(--color-white);
+            outline: none;
+            width: 0px;
+            padding: 10px;
+            background: var(--color-background);
+            border: 1px solid #fff;
+            transition: width 0.5s;
+            cursor: pointer;
+            opacity: 0;
+
+            &:focus {
+                padding-left: 26px;
+                width: 300px;
+                cursor: text;
+                opacity: 1;
+                border-radius: 4px;
+                @include mobile {
+                    width: 200px;
+                }
+            }
+        }
+    }
+    &-menu {
+        margin-right: 5%;
+        @include flex(center, unset);
+        &-item {
+            padding: 5px 0;
+            font-weight: 700;
+            position: relative;
+            font-size: 1.5rem;
+            &::after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                background-color: #d52b1e;
+                transform: translateX(-50%);
+                width: 100%;
+                transition: width 0.3s ease;
+                height: 2px;
+            }
+            &.active::after,
+            &:hover::after {
+                width: 100%;
+            }
+        }
+        &-link {
+            padding: 0 10px;
+            font-size: 20px;
+            cursor: pointer;
+            &:hover {
+                color: #d52b1e;
+                font-weight: 600;
+            }
+        }
+    }
+}
